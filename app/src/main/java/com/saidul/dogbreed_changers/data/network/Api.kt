@@ -16,7 +16,8 @@ interface Api {
     @GET("v1/images/search?")
     suspend fun images(
         @Query("limit") limit: Int,
-        @Query("page") page: Int
+        @Query("page") page: Int,
+        @Query("breed_id") breed_id: Int,
     ): Response<List<ImagesResponseItem>>
 
 }

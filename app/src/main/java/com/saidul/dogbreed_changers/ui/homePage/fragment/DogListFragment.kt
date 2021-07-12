@@ -18,7 +18,7 @@ import com.saidul.dogbreed_changers.ui.homePage.DogMainActivity
 import com.saidul.dogbreed_changers.ui.homePage.adapter.ImagesAdapter
 import com.saidul.dogbreed_changers.ui.homePage.adapter.PHDataLoadStateAdapter
 import com.sundarban.pickndrop.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_instant_delivery.view.*
+import kotlinx.android.synthetic.main.fragment_dog_list.view.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -33,7 +33,7 @@ class DogListFragment : BaseFragment(), LifecycleOwner, AdapterView.OnItemClickL
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_instant_delivery, container, false)
+        val view = inflater.inflate(R.layout.fragment_dog_list, container, false)
         myViewModel = ViewModelProvider(requireActivity()).get(DogPageViewModel::class.java)
 
         initilzationView(view)
@@ -55,15 +55,18 @@ class DogListFragment : BaseFragment(), LifecycleOwner, AdapterView.OnItemClickL
             activity.showToastMessage(it)
         })
 
-        myViewModel.mBreedsItem.observe(viewLifecycleOwner, {
 
-            lifecycleScope.launch {
-                myViewModel.imageData.collectLatest {
-                    mImagesAdapter.submitData(it)
+        myViewModel.mBreedsItem.observe(viewLifecycleOwner, {
+            if (myViewModel.mBreedsItem.value != null) {
+                myViewModel.imagePagingSource?.invalidate()
+
+                lifecycleScope.launch {
+                    myViewModel.imageData.collectLatest {
+                        mImagesAdapter.submitData(it)
+                    }
                 }
             }
-
-        });
+        })
 
 
     }
@@ -77,11 +80,6 @@ class DogListFragment : BaseFragment(), LifecycleOwner, AdapterView.OnItemClickL
     private fun initilzationView(view: View) {
         setupAdapter(view)
 
-        lifecycleScope.launch {
-            myViewModel.imageData.collectLatest {
-                mImagesAdapter.submitData(it)
-            }
-        }
 
         view.btnRetry.setOnClickListener {
             mImagesAdapter.retry()

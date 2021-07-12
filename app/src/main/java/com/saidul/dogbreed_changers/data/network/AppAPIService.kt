@@ -13,8 +13,8 @@ class AppAPIService(private val api: Api) : BaseService() {
     }
 
 
-    suspend fun images(limit: Int, page: Int): Result<List<ImagesResponseItem>> {
-        return createCall { api.images(limit, page) }
+    suspend fun images(limit: Int, page: Int, breed_id: Int): Result<List<ImagesResponseItem>> {
+        return createCall { api.images(limit, page, breed_id) }
     }
 
 

@@ -14,8 +14,8 @@ class Repository(private val APIService: AppAPIService) {
         }
     }
 
-    suspend fun images(limit: Int, page: Int): List<ImagesResponseItem> {
-        return when (val result = APIService.images(limit, page)) {
+    suspend fun images(limit: Int, page: Int, breed_id: Int): List<ImagesResponseItem> {
+        return when (val result = APIService.images(limit, page, breed_id)) {
             is Result.Success -> result.data
             is Result.Error -> throw result.error
         }
