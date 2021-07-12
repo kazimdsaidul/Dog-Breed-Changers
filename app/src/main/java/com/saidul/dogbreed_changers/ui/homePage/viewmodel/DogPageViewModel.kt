@@ -1,16 +1,15 @@
-package com.saidul.dogbreed_changers.ui
+package com.saidul.dogbreed_changers.ui.homePage.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import com.saidul.dogbreed_changers.base.BaseViewModel
 import com.saidul.dogbreed_changers.data.model.BreedsItem
 import com.saidul.dogbreed_changers.data.model.ImagesResponseItem
 import com.saidul.dogbreed_changers.data.repository.Repository
 import com.saidul.dogbreed_changers.ui.homePage.paged.ImagePagingSource
-import com.sundarban.pickndrop.base.BaseViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-
 import kotlinx.coroutines.launch
 
 
@@ -50,11 +49,11 @@ class DogPageViewModel(private val repository: Repository) : BaseViewModel() {
             try {
                 val breeds = repository.breeds()
                 processBarUILiveData.value = false
-                val size = breeds.size ?: 0
+                val size = breeds.size
                 if (size == 0) {
                     showMessageToUser.value = "No bog breeds found"
                 } else {
-                    mBreeds.value = breeds;
+                    mBreeds.value = breeds
                 }
 
             } catch (e: Exception) {
@@ -66,10 +65,6 @@ class DogPageViewModel(private val repository: Repository) : BaseViewModel() {
     fun onItemClick(get: BreedsItem?) {
 
         mBreedsItem.value = get
-    }
-
-    override fun onCleared() {
-        super.onCleared()
     }
 
 

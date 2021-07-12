@@ -1,4 +1,4 @@
-package com.sundarban.pickndrop.base
+package com.saidul.dogbreed_changers.base
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.saidul.dogbreed_changers.R
-import com.saidul.dogbreed_changers.base.BaseDialogFragment
 
 
 class NoInternetConnectionMsgDialog(val onClickHandler: OnClickHandler) : BaseDialogFragment() {
@@ -34,12 +33,12 @@ class NoInternetConnectionMsgDialog(val onClickHandler: OnClickHandler) : BaseDi
         if (dialog != null) {
             val width = ViewGroup.LayoutParams.MATCH_PARENT
             val height = ViewGroup.LayoutParams.WRAP_CONTENT
-            dialog.getWindow()?.setLayout(width, height)
+            dialog.window?.setLayout(width, height)
         }
     }
 
-    public interface OnClickHandler {
-        public fun onRetry()
+    interface OnClickHandler {
+        fun onRetry()
     }
 
 

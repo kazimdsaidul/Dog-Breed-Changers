@@ -5,11 +5,11 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.FragmentTransaction
 import com.saidul.dogbreed_changers.R
+import com.saidul.dogbreed_changers.base.MVVMBaseActivity
 import com.saidul.dogbreed_changers.data.model.BreedsItem
-import com.saidul.dogbreed_changers.ui.DogPageViewModel
 import com.saidul.dogbreed_changers.ui.homePage.adapter.CustomDropDownAdapter
 import com.saidul.dogbreed_changers.ui.homePage.fragment.DogListFragment
-import com.sundarban.pickndrop.base.MVVMBaseActivity
+import com.saidul.dogbreed_changers.ui.homePage.viewmodel.DogPageViewModel
 import kotlinx.android.synthetic.main.activity_dog_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,7 +45,7 @@ class DogMainActivity : MVVMBaseActivity(), AdapterView.OnItemClickListener,
     private fun setupDogBreedDropdown(it: List<BreedsItem>) {
         val customDropDownAdapter = CustomDropDownAdapter(applicationContext, it)
         spinner.adapter = customDropDownAdapter
-        spinner.setOnItemSelectedListener(this)
+        spinner.onItemSelectedListener = this
 
 
     }

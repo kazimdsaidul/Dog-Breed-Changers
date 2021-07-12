@@ -2,12 +2,6 @@ package com.saidul.dogbreed_changers.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class BreedsResponse(
-
-	@field:SerializedName("BreedsResponse")
-	val breedsResponse: List<BreedsResponseItem?>? = null
-)
-
 data class BreedsResponseItem(
 
 	@field:SerializedName("life_span")

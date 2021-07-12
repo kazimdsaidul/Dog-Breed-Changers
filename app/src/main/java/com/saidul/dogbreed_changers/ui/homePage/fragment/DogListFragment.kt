@@ -13,11 +13,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
 import com.saidul.dogbreed_changers.R
-import com.saidul.dogbreed_changers.ui.DogPageViewModel
+import com.saidul.dogbreed_changers.base.BaseFragment
 import com.saidul.dogbreed_changers.ui.homePage.DogMainActivity
 import com.saidul.dogbreed_changers.ui.homePage.adapter.ImagesAdapter
 import com.saidul.dogbreed_changers.ui.homePage.adapter.PHDataLoadStateAdapter
-import com.sundarban.pickndrop.base.BaseFragment
+import com.saidul.dogbreed_changers.ui.homePage.viewmodel.DogPageViewModel
 import kotlinx.android.synthetic.main.fragment_dog_list.view.*
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -107,7 +107,7 @@ class DogListFragment : BaseFragment(), LifecycleOwner, AdapterView.OnItemClickL
                 view.btnRetry.visibility = View.GONE
                 view.progressBar.visibility = View.VISIBLE
             } else if (loadState.append.endOfPaginationReached && mImagesAdapter.itemCount < 1) {
-                Log.e("", "NO data fond");
+                Log.e("", "NO data fond")
                 view.progressBar.visibility = View.GONE
                 view.tvNoDataFound.visibility = View.VISIBLE
             } else {

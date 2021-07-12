@@ -3,7 +3,7 @@ package com.saidul.dogbreed_changers.app
 import android.app.Application
 import com.saidul.dogbreed_changers.di.networkModule
 import com.saidul.dogbreed_changers.di.repositoryModule
-import com.sundarban.pickndrop.di.viewModelModule
+import com.saidul.dogbreed_changers.di.viewModelModule
 
 
 import org.koin.android.ext.koin.androidContext

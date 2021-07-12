@@ -2,12 +2,6 @@ package com.saidul.dogbreed_changers.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class ImagesResponse(
-
-	@field:SerializedName("ImagesResponse")
-	val imagesResponse: List<ImagesResponseItem?>? = null
-)
-
 data class Weight(
 
 	@field:SerializedName("metric")

@@ -12,7 +12,7 @@ import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.saidul.dogbreed_changers.R
-import com.saidul.dogbreed_changers.ui.ImageModel
+import com.saidul.dogbreed_changers.ui.homePage.viewmodel.ImageModel
 import kotlinx.android.synthetic.main.item_dog_image.view.*
 
 
@@ -39,7 +39,7 @@ class ImagesAdapter(val context: Context) :
 
 
                     Glide.with(context).load(movieModel.dataItem.url).apply(options)
-                        .into(holder.itemView.imageView);
+                        .into(holder.itemView.imageView)
 
 
                 }

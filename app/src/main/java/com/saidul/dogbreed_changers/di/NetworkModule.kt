@@ -48,6 +48,5 @@ fun okhttpClient(): OkHttpClient {
     builder.writeTimeout(APIConstant.KEY_TIME_LIMIT, TimeUnit.SECONDS)
     builder.readTimeout(APIConstant.KEY_TIME_LIMIT, TimeUnit.SECONDS)
 
-    val client = builder.build()
-    return client;
+    return builder.build()
 }

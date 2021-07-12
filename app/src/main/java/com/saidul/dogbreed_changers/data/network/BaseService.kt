@@ -1,4 +1,4 @@
-package com.sundarban.pickndrop.data.network
+package com.saidul.dogbreed_changers.data.network
 
 import com.saidul.dogbreed_changers.data.model.Result
 import com.saidul.dogbreed_changers.data.network.exceptions.NoInternetException

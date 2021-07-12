@@ -1,7 +1,6 @@
-package com.sundarban.pickndrop.base
+package com.saidul.dogbreed_changers.base
 
 import com.saidul.dogbreed_changers.R
-import com.saidul.dogbreed_changers.base.BaseActivity
 
 
 /**
@@ -35,7 +34,7 @@ open class MVVMBaseActivity : BaseActivity() {
 
     }
 
-    fun showSimpleFailureDialog(title: String, content: String, agree: String) {
+    private fun showSimpleFailureDialog(title: String, content: String, agree: String) {
 //        MaterialDialog.Builder(this)
 //                .title(title)
 //                .content(content)
@@ -44,22 +43,6 @@ open class MVVMBaseActivity : BaseActivity() {
 //                }.show()
     }
 
-
-    fun showSimpleSuccessDialog(
-        title: String,
-        content: String,
-        agree: String,
-        isCancelAble: Boolean = false,
-        positiveCallBack: PositiveCallBack
-    ) {
-//        MaterialDialog.Builder(this)
-//                .title(title)
-//                .cancelable(isCancelAble)
-//                .content(content)
-//                .positiveText(agree).onPositive { dialog, which ->
-//                    positiveCallBack.onClick()
-//                }.show()
-    }
 
     interface PositiveCallBack {
         fun onClick()
