@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.saidul.dogbreed_changers">
+    package="com.saidul.dogbreed">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".app.MyApp"
+        android:name="com.saidul.dogbreed.app.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DogBreedChangers">
 
         <activity
-            android:name=".ui.homePage.DogMainActivity"
+            android:name="com.saidul.dogbreed.ui.homePage.DogMainActivity"
             android:theme="@style/Theme.DogBreedChangers.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
